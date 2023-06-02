@@ -1,0 +1,5 @@
+
+for i in range(-100, 100):
+    yhat = 2*i + 3
+    if yhat == 5:
+        print ("El resultado es ", i)

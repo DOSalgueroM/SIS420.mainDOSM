@@ -1,0 +1,31 @@
+from math import inf as infinity
+precios = [75000, 190000, 210000, 110000, 130000, 450000, 290000, 150000, 160000, 135000, 350000, 375000, 55000, 275000, 250000, 410000, 175000, 30000, 355000, 330000]
+superficies = [150, 300, 250, 200, 180, 500, 390, 250, 230, 190, 410, 450, 125, 350, 310, 470, 280, 100, 420, 400]
+
+cohe_a = []
+cohe_b = []
+sum = 0
+sum2 = 0
+for ix in range(0, len(superficies)):
+    mejor_diferencia = infinity
+    mejor_cohe_a = 0
+    mejor_cohe_b = 0
+    for a in range(-100,100):
+        for b in range(-100, 100):
+            y_hat = a + b*superficies[ix]
+            diferencia = abs(y_hat - precios[ix])
+            if diferencia < mejor_diferencia:
+                mejor_diferencia = diferencia
+                mejor_cohe_a = a
+                mejor_cohe_b = b
+    cohe_a.append(mejor_cohe_a)
+    cohe_b.append(mejor_cohe_b)
+for i in range(0, len(cohe_a)):
+    sum += cohe_a[i]
+promedio1= sum/len(cohe_a)
+print(promedio1)
+for j in range(0, len(cohe_b)):
+    sum2 += cohe_b[j]
+promedio2= sum/len(cohe_b)
+print(promedio2)
+
